@@ -1,0 +1,13 @@
+venv
+
+__pycache__
+
+.scrapy/
+
+config
+
+.csv
+
+.json
+
+jobs.db

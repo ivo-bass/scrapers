@@ -1,4 +1,4 @@
-# Web Scrapers
+# DevBG Python Jobs Scraper
 
 ## Overview
 

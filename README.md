@@ -8,13 +8,13 @@ All data is stored in **sqlite3** database for consistency. The data stored cons
 
 **Deltafetched** is used to skip all previous data from current search.
 
-After each scraping an email with all unsent offers from the las 2 days is sent.
+After each scraping an email with all unsent offers from the last 2 days is sent.
 
 The runtime of the scraper is automated with **cron**.
 
 The scraper is meant to be hosted on a web server which I did with an EC2 server on AWS.
 
-## Setup and Schedule on Linux
+## Setup on Linux
 
 1. Clone the Repo
 
@@ -57,9 +57,33 @@ The scraper is meant to be hosted on a web server which I did with an EC2 server
     cd ../../..
    ```
 
-6. Install **`cron`** if not present
+## Usage
 
-7. Set cron task
+1. Execute scraping _(results will be available in db)_
+
+   ```sh
+   cd devBG/devBG
+
+   scrapy crawl job
+   ```
+
+2. Extract results to csv or json _(if needed)_
+
+   _Email will be sent on each execution_
+
+   ```sh
+   scrapy crawl job -O results.csv
+
+   or
+
+   scrapy crawl job -O results.json
+   ```
+
+## Schedule
+
+1. Install **`cron`** if not present
+
+2. Set cron task
 
    - Open cron task scheduler
 
@@ -81,4 +105,4 @@ The scraper is meant to be hosted on a web server which I did with an EC2 server
      crontab -l
      ```
 
-8. Enjoy!
+3. Enjoy!
